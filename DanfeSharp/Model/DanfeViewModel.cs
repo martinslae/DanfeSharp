@@ -266,6 +266,9 @@ namespace DanfeSharp.Model
             }
         }
 
+        public Double ValorPis { get; internal set; }
+        public Double ValorCofins { get; internal set; }
+
         public static DanfeViewModel CreateFromXmlFile(String path)
         {
             return DanfeViewModelCreator.CreateFromXmlFile(path);

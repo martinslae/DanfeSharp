@@ -28,15 +28,17 @@ namespace DanfeSharp
         public DanfeCampo Desconto { get; private set; }
         public DanfeCampo OutrasDespesas { get; private set; }
         public DanfeCampo ValorIpi { get; private set; }
+        public DanfeCampo ValorPis { get; private set; }
+        public DanfeCampo ValorCofins { get; private set; }
         public DanfeCampo ValorNota { get; private set; }
 
         #endregion
 
-        
+
         public BlocoCalculoImposto(DanfeDocumento danfeMaker)
             : base(danfeMaker)
         {
-            Size = new SizeF(Danfe.InnerRect.Width, danfeMaker.CabecalhoBlocoAltura + 2*danfeMaker.CampoAltura + DanfeDocumento.LineWidth);
+            Size = new SizeF(Danfe.InnerRect.Width, danfeMaker.CabecalhoBlocoAltura + 2 * danfeMaker.CampoAltura + DanfeDocumento.LineWidth);
             Initialize();
 
         }
@@ -60,6 +62,8 @@ namespace DanfeSharp
             Desconto = CriarCampo("Desconto", Danfe.Model.Desconto.Formatar());
             OutrasDespesas = CriarCampo("OUTRAS DESPESAS", Danfe.Model.OutrasDespesas.Formatar());
             ValorIpi = CriarCampo("VALOR DO IPI", Danfe.Model.ValorIpi.Formatar());
+            ValorPis = CriarCampo("VALOR DO PIS", Danfe.Model.ValorPis.Formatar());
+            ValorCofins = CriarCampo("VALOR DO COFINS", Danfe.Model.ValorCofins.Formatar());
             ValorNota = CriarCampo("VALOR TOTAL DA NOTA", Danfe.Model.ValorTotalNota.Formatar(), RectangleF.Empty, XAlignmentEnum.Right, 10, true);
         }
 
@@ -69,9 +73,9 @@ namespace DanfeSharp
             PosicionarLadoLado(linha, BaseCalculoIcms, ValorIcms, BaseCalculoIcmsSt, ValorCalculoIcmsSt, ValorProdutos);
 
             linha.Y = linha.Bottom;
-            PosicionarLadoLado(linha, new float[] { 0, 0, 0, 0, 0, ValorProdutos.Retangulo.Width}, ValorFrete, ValorSeguro, Desconto, OutrasDespesas, ValorIpi, ValorNota);
-        }       
-                  
+            PosicionarLadoLado(linha, new float[] { 0, 0, 0, 0, 0, 0, 0, ValorProdutos.Retangulo.Width }, ValorFrete, ValorSeguro, Desconto, OutrasDespesas, ValorIpi, ValorPis, ValorCofins, ValorNota);
+        }
+
 
         public override string Cabecalho
         {
@@ -80,5 +84,6 @@ namespace DanfeSharp
                 return "CÁLCULO DO IMPOSTO";
             }
         }
+
     }
 }
