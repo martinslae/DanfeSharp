@@ -11,6 +11,27 @@ namespace DanfeSharp.Test
     public class TestarXmls
     {
         [TestMethod]
+        public void TestarArquivoXml310()
+        {
+            DanfeViewModel model = DanfeViewModel.CreateFromXmlString(Properties.Resources.NFe52171004621624000349550000001227291432126856_nfe);
+            Assert.AreEqual(model.Destinatario.Nome, "CLIENTE - Cod. 0374941");            
+        }
+
+        [TestMethod]
+        public void TestarValorPIS()
+        {
+            DanfeViewModel model = DanfeViewModel.CreateFromXmlString(Properties.Resources.NFe52171004621624000349550000001227291432126856_nfe);
+            Assert.AreEqual(model.ValorPis, 1d);
+        }
+
+        [TestMethod]
+        public void TestarValorCOFINS()
+        {
+            DanfeViewModel model = DanfeViewModel.CreateFromXmlString(Properties.Resources.NFe52171004621624000349550000001227291432126856_nfe);
+            Assert.AreEqual(model.ValorCofins, 4.63d);
+        }
+
+        [TestMethod]
         public void XmlPasta()
         {           
             var arquivos = Directory.EnumerateFiles("../../XmlTestes", "*.xml");

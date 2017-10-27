@@ -256,6 +256,8 @@ namespace DanfeSharp.Model
             model.ValorSeguro = icmsTotal.vSeg;
             model.Desconto = icmsTotal.vDesc;
             model.ValorIpi = icmsTotal.vIPI;
+            model.ValorPis = icmsTotal.vPIS;
+            model.ValorCofins = icmsTotal.vCOFINS;
             model.OutrasDespesas = icmsTotal.vOutro;
             model.ValorTotalNota = icmsTotal.vNF;
 
@@ -417,6 +419,8 @@ namespace DanfeSharp.Model
             model.ValorSeguro = icmsTotal.vSeg;
             model.Desconto = icmsTotal.vDesc;
             model.ValorIpi = icmsTotal.vIPI;
+            model.ValorPis = icmsTotal.vPIS;
+            model.ValorCofins = icmsTotal.vCOFINS;
             model.OutrasDespesas = icmsTotal.vOutro;
             model.ValorTotalNota = icmsTotal.vNF;
 
